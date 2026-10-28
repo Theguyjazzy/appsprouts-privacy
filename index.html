@@ -6,6 +6,9 @@
   <meta name="theme-color" content="#080d18">
   <title>Privacy Policy & Account Deletion — AppSprouts</title>
   <meta name="description" content="Learn how AppSprouts handles your information and how to request account deletion (90-day deletion timeline).">
+  <link rel="icon" type="image/png" sizes="64x64" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="1024x1024" href="icon.png">
+  <link rel="apple-touch-icon" href="icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -57,11 +60,11 @@
     }
     .brand { display: inline-flex; align-items: center; gap: 11px; color: var(--text); text-decoration: none; font: 800 1.12rem/1 "Manrope", sans-serif; letter-spacing: -.04em; white-space: nowrap; }
     .brand-mark {
-      width: 34px; height: 34px; border-radius: 11px; display: grid; place-items: center;
-      color: #fff; background: linear-gradient(145deg, #9a8cff, #477ee9);
-      box-shadow: 0 5px 18px rgba(81, 118, 229, .2);
+      width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center;
+      background: #000; border: 1px solid var(--line-strong);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, .4); overflow: hidden; flex-shrink: 0;
     }
-    .brand-mark svg { width: 20px; height: 20px; }
+    .brand-img { width: 100%; height: 100%; object-fit: contain; display: block; border-radius: 9px; }
     .nav-links { display: flex; align-items: center; gap: 5px; }
     .nav-links a { text-decoration: none; color: var(--muted); padding: 9px 13px; border-radius: 10px; font-size: .9rem; transition: background .18s ease, color .18s ease; }
     .nav-links a:hover, .nav-links a:focus-visible { background: rgba(255,255,255,.055); color: var(--text); outline: none; }
@@ -135,7 +138,8 @@
     .contact-link { display: inline-flex; align-items: center; gap: 9px; margin-top: 3px; text-decoration: none; font-weight: 600; }
     footer { border-top: 1px solid var(--line); color: var(--subtle); }
     .footer-inner { width: min(var(--content), calc(100% - 40px)); margin: auto; padding: 25px 0 32px; display: flex; align-items: center; justify-content: space-between; gap: 20px; font-size: .82rem; }
-    .footer-brand { color: #c9d6ec; font-family: "Manrope", sans-serif; font-weight: 800; }
+    .footer-brand { display: inline-flex; align-items: center; gap: 9px; color: #c9d6ec; font-family: "Manrope", sans-serif; font-weight: 800; }
+    .footer-icon { width: 20px; height: 20px; border-radius: 5px; object-fit: contain; }
     .footer-note { text-align: right; }
     @media (max-width: 850px) {
       .highlights { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -180,7 +184,7 @@
     <div class="nav">
       <a class="brand" href="#top" aria-label="AppSprouts home">
         <span class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M19.5 4.5C12 4.7 6.2 7.5 5.1 13.2c-.4 2.1.6 4.3 2.6 5.1 2.1.9 4.6-.1 6-2.1 2.4-3.5 2.8-7.8 5.8-11.7Z" fill="currentColor" opacity=".95"/><path d="M3.8 20.1c2.2-4.3 5.4-7.4 10-9.8" stroke="#17264b" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <img src="icon.png" alt="AppSprouts" class="brand-img">
         </span>
         <span>AppSprouts</span>
       </a>
@@ -327,7 +331,7 @@
 
   <footer>
     <div class="footer-inner">
-      <div><span class="footer-brand">AppSprouts</span> <span> · © 2026</span></div>
+      <div><span class="footer-brand"><img src="icon.png" alt="" class="footer-icon"> AppSprouts</span> <span> · © 2026</span></div>
       <div class="footer-note">Small ideas. Useful apps. Clearer privacy · 90-day deletion cycle</div>
     </div>
   </footer>
