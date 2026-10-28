@@ -335,9 +335,8 @@
   <script>
     (() => {
       const SUPPORT_EMAIL = "support@appsprouts.app";
-      // Google Apps Script Web App URL or Webhook endpoint:
-      // Replace with your Google Apps Script URL (e.g., https://script.google.com/macros/s/.../exec)
-      const GOOGLE_SHEET_ENDPOINT = "";
+      // Google Apps Script Web App URL:
+      const GOOGLE_SHEET_ENDPOINT = "https://script.google.com/macros/s/AKfycbw9iapxA276ecH85sQ8BWeKBg1WPcYmWvDd8fJInw3zn_C7pQATGtRfvg89Tj9hxPUAxw/exec";
 
       const contact = document.getElementById("contact-email-link");
       if (contact) {
@@ -395,7 +394,7 @@
             await fetch(GOOGLE_SHEET_ENDPOINT, {
               method: "POST",
               mode: "no-cors",
-              headers: { "Content-Type": "application/json" },
+              headers: { "Content-Type": "text/plain;charset=utf-8" },
               body: JSON.stringify(payload)
             });
 

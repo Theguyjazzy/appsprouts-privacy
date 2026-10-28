@@ -11,43 +11,16 @@ This repository hosts the official Privacy Policy and Account Deletion portal fo
 
 ---
 
-## 🚀 One-Minute Google Sheet Setup (To Collect Deletion Requests)
+## 🚀 Google Sheet Logging (Connected)
 
-A standard Google Sheet link cannot directly receive POST requests from the browser without an endpoint. The simplest, 100% free way to log requests is using Google Apps Script:
-
-1. Open your Google Sheet (e.g. named `AppSprouts Account Deletion Requests`).
-2. Give Row 1 the headers:
-   - **Column A**: `Timestamp`
-   - **Column B**: `Email`
-   - **Column C**: `Target Purge Date (90 Days)`
-   - **Column D**: `Policy`
-3. In the top menu, go to **Extensions > Apps Script**.
-4. Replace any existing code in the editor with:
-   ```javascript
-   function doPost(e) {
-     var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-     var data = JSON.parse(e.postData.contents);
-     sheet.appendRow([
-       data.timestamp || new Date().toISOString(),
-       data.email,
-       data.targetPurgeDate,
-       data.policy || "90-Day Deletion"
-     ]);
-     return ContentService.createTextOutput(JSON.stringify({ result: "success" }))
-       .setMimeType(ContentService.MimeType.JSON);
-   }
-   ```
-5. Click **Deploy** (blue button in top-right) > **New deployment**.
-6. Under *Select type*, pick **Web app**.
-   - **Description**: `AppSprouts Deletion Collector`
-   - **Execute as**: `Me`
-   - **Who has access**: `Anyone` *(Crucial so the form can submit without requiring Google sign-in)*
-7. Click **Deploy** and copy the **Web app URL** (starts with `https://script.google.com/macros/s/.../exec`).
-8. Paste that URL into line 282 of `index.html`:
-   ```javascript
-   const GOOGLE_SHEET_ENDPOINT = "https://script.google.com/macros/s/.../exec";
-   ```
-9. Commit and push to Git — Vercel will redeploy automatically!
+This portal is connected to your Google Apps Script Web App:
+- **Endpoint**: `https://script.google.com/macros/s/AKfycbw9iapxA276ecH85sQ8BWeKBg1WPcYmWvDd8fJInw3zn_C7pQATGtRfvg89Tj9hxPUAxw/exec`
+- Whenever a user enters their email and submits the deletion form, it appends a row with:
+  - `timestamp`: ISO timestamp
+  - `email`: User's account email
+  - `targetPurgeDate`: Exact date 90 days from the request
+  - `policy`: "90-Day Deletion"
+- Tested and verified: Rows append in real-time.
 
 ---
 
